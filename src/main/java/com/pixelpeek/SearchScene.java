@@ -53,14 +53,19 @@ public class SearchScene {
             errorLabel.setText("");
             searchField.setDisable(true);
             searchField.setPromptText("searching...");
+            SoundManager.playSearch();
 
             // Run API call off the UI thread
             Thread thread = new Thread(() -> {
                 try {
                     PhotoData data = UnsplashService.search(query);
-                    javafx.application.Platform.runLater(() -> ResultScene.show(data));
+                    javafx.application.Platform.runLater(() -> {
+                        SoundManager.playSuccess();
+                        ResultScene.show(data);
+                    });
                 } catch (Exception ex) {
                     javafx.application.Platform.runLater(() -> {
+                        SoundManager.playError();
                         errorLabel.setText("⚠  " + ex.getMessage());
                         searchField.setDisable(false);
                         searchField.setText("");

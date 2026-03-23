@@ -14,6 +14,10 @@ public class Main extends Application {
         stage.setWidth(700);
         stage.setHeight(780);
         stage.setResizable(false);
+
+        SoundManager.init();
+        SoundManager.playStartup();
+
         SearchScene.show();
     }
 
