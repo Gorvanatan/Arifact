@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PixelPeek 🔍
 
 A JavaFX desktop app that takes a single search word, fetches a photo from the Unsplash API, and then reveals detailed metadata about that photo — all with smooth animations.
@@ -136,3 +137,7 @@ All code was reviewed, tested, and understood before being included. The core lo
 ## License
 
 MIT — free to use and modify.
+=======
+# Arifact
+Artifact for ITPS
+>>>>>>> branch 'main' of https://github.com/Gorvanatan/Arifact
