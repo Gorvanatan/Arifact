@@ -24,12 +24,12 @@ public class SearchScene {
         title.setFont(Font.font("Arial", FontWeight.BOLD, 46));
         title.setTextFill(Color.WHITE);
 
-        Label subtitle = new Label("Enter a word. Discover a photo.");
+        Label subtitle = new Label("Enter a word");
         subtitle.setFont(Font.font("Arial", 16));
         subtitle.setTextFill(Color.web("#777777"));
 
         TextField searchField = new TextField();
-        searchField.setPromptText("try: ocean, forest, city...");
+        searchField.setPromptText("");
         searchField.setStyle(
             "-fx-background-color: #1a1a1a;" +
             "-fx-border-color: #333333;" +
@@ -80,7 +80,7 @@ public class SearchScene {
                         errorLabel.setText("⚠  " + ex.getMessage());
                         searchField.setDisable(false);
                         searchField.setText("");
-                        searchField.setPromptText("try: ocean, forest, city...");
+                        searchField.setPromptText("");
                         searchField.requestFocus();
                     });
                 }

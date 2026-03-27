@@ -18,6 +18,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.util.Duration;
+import java.awt.Desktop;
+import java.net.URI;
 
 public class ResultScene {
 
@@ -107,7 +109,7 @@ public class ResultScene {
             divider(),
             infoRow("📸  Photographer",    data.photographerName),
             divider(),
-            infoRow("🔗  Source",          data.photographerUrl)
+            linkRow("🔗  Source",          data.photographerUrl)
         );
 
         infoBox.getChildren().addAll(header, rows);
@@ -219,6 +221,36 @@ public class ResultScene {
         sep.setStyle("-fx-background-color: #232323;");
         sep.setPadding(new Insets(0, 22, 0, 22));
         return sep;
+    }
+
+    private static HBox linkRow(String label, String url) {
+        HBox row = new HBox(16);
+        row.setAlignment(Pos.CENTER_LEFT);
+        row.setPadding(new Insets(14, 22, 14, 22));
+
+        Label labelNode = new Label(label);
+        labelNode.setFont(Font.font("Arial", FontWeight.BOLD, 13));
+        labelNode.setTextFill(Color.web("#888888"));
+        labelNode.setMinWidth(175);
+
+        Label linkNode = new Label(url);
+        linkNode.setFont(Font.font("Arial", 13));
+        linkNode.setTextFill(Color.web("#4ea8f5"));
+        linkNode.setStyle("-fx-cursor: hand;");
+        linkNode.setWrapText(true);
+        linkNode.setMaxWidth(380);
+        linkNode.setOnMouseEntered(e -> linkNode.setTextFill(Color.web("#80c4ff")));
+        linkNode.setOnMouseExited(e  -> linkNode.setTextFill(Color.web("#4ea8f5")));
+        linkNode.setOnMouseClicked(e -> {
+            try {
+                Desktop.getDesktop().browse(new URI(url));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        row.getChildren().addAll(labelNode, linkNode);
+        return row;
     }
 
     private static String capitalise(String s) {
