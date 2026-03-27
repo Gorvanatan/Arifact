@@ -10,6 +10,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
+import java.util.Random;
 
 public class UnsplashService {
 
@@ -19,7 +20,7 @@ public class UnsplashService {
 
     public static PhotoData search(String query) throws Exception {
         String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
-        String url = BASE_URL + "?query=" + encodedQuery + "&per_page=1&client_id=" + ACCESS_KEY;
+        String url = BASE_URL + "?query=" + encodedQuery + "&per_page=30&client_id=" + ACCESS_KEY;
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -43,7 +44,7 @@ public class UnsplashService {
             throw new Exception("No photos found for \"" + query + "\". Try a different word.");
         }
 
-        JsonObject photo = results.get(0).getAsJsonObject();
+        JsonObject photo = results.get(new Random().nextInt(results.size())).getAsJsonObject();
 
         String imageUrl = photo.getAsJsonObject("urls").get("regular").getAsString();
         int width = photo.get("width").getAsInt();

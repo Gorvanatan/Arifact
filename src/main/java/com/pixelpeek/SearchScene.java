@@ -57,8 +57,8 @@ public class SearchScene {
 
             // Run API call off the UI thread
             Thread thread = new Thread(() -> {
+                long startTime = System.currentTimeMillis();
                 try {
-                    long startTime = System.currentTimeMillis();
                     PhotoData data = UnsplashService.search(query);
                     long elapsed = System.currentTimeMillis() - startTime;
                     long minDelay = 2500; // minimum 2.5 seconds for the "searching" illusion
@@ -70,6 +70,11 @@ public class SearchScene {
                         ResultScene.show(data);
                     });
                 } catch (Exception ex) {
+                    long elapsed = System.currentTimeMillis() - startTime;
+                    long minDelay = 2500;
+                    if (elapsed < minDelay) {
+                        try { Thread.sleep(minDelay - elapsed); } catch (InterruptedException ignored) {}
+                    }
                     javafx.application.Platform.runLater(() -> {
                         SoundManager.playError();
                         errorLabel.setText("⚠  " + ex.getMessage());
