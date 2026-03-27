@@ -58,7 +58,13 @@ public class SearchScene {
             // Run API call off the UI thread
             Thread thread = new Thread(() -> {
                 try {
+                    long startTime = System.currentTimeMillis();
                     PhotoData data = UnsplashService.search(query);
+                    long elapsed = System.currentTimeMillis() - startTime;
+                    long minDelay = 2500; // minimum 2.5 seconds for the "searching" illusion
+                    if (elapsed < minDelay) {
+                        Thread.sleep(minDelay - elapsed);
+                    }
                     javafx.application.Platform.runLater(() -> {
                         SoundManager.playSuccess();
                         ResultScene.show(data);
