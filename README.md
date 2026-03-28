@@ -72,6 +72,9 @@ Type any single word into the search bar and press Enter.
 
 ![Search screen — just a simple centered search bar on a dark background] 
 
+<img width="847" height="921" alt="image" src="https://github.com/user-attachments/assets/e1a72d7b-4b1f-47d0-acb1-dc882d84196a" />
+
+
 Screen 2 — Result
 
 The matching photo appears, then after a short pause the details panel fades in below it. After 5 seconds total, the **Search Again** button slides up from the bottom.
@@ -79,6 +82,11 @@ The matching photo appears, then after a short pause the details panel fades in 
 ![Result screen — photo with metadata panel and Search Again button]
 
 The result screen is scrollable, so even tall images and long descriptions are fully accessible.
+
+<img width="850" height="907" alt="image" src="https://github.com/user-attachments/assets/46523f5b-b3a3-441d-b92e-adda5638997f" />
+<img width="827" height="832" alt="image" src="https://github.com/user-attachments/assets/29b4d45d-112e-4fdc-8d00-d0c9eb789aa5" />
+
+
 
 ## AI Acknowledgment
 
