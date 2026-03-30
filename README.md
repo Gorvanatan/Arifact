@@ -1,4 +1,4 @@
-# 🔍 PixelPeek
+#  PixelPeek
 ### by Gorvanatan
 
 > A JavaFX desktop app that takes a single search word, fetches a photo from the Unsplash API, and reveals detailed metadata about it.
@@ -93,6 +93,7 @@ The photo appears, then the details panel fades in. After 5 seconds the **Search
 
 <img width="850" height="907" alt="Result screen" src="https://github.com/user-attachments/assets/46523f5b-b3a3-441d-b92e-adda5638997f" />
 <img width="827" height="832" alt="Result screen scrolled" src="https://github.com/user-attachments/assets/29b4d45d-112e-4fdc-8d00-d0c9eb789aa5" />
+
 
 ---
 
